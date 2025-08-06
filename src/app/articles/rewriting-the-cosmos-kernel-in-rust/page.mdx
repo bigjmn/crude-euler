@@ -1,5 +1,7 @@
 import { ArticleLayout } from '@/components/ArticleLayout'
-
+import designSystem from './EisenhowerGT.png'
+import kennedyStrategy from './Kennedy.png'
+import doomsdayStrategy from './DoomsdayVersion.png'
 export const article = {
   author: 'Adam Wathan',
   date: '2022-07-14',
@@ -15,67 +17,46 @@ export const metadata = {
 
 export default (props) => <ArticleLayout article={article} {...props} />
 
-When we released the first version of cosmOS last year, it was written in Go. Go is a wonderful programming language with a lot of benefits, but it’s been a while since I’ve seen an article on the front page of Hacker News about rewriting some important tool in Go and I see articles on there about rewriting things in Rust every single week.
+I’ve recently started reading Annie Jacobsen’s terrific new book, Nuclear War: a Scenario. It’s a hyper-realistic minute-by-minute account of how a nuclear war could break out, and what it would look like (spoilers: not great!) Now when I say reading, I actually mean listening to the audiobook as I go to sleep, which has (predictably) led to some bad dreams about nuclear war. I told my friend about this the other day, to which he responded: ‘and do we win?”
 
-```rust
-use ferris_says::say;
-use std::io::{stdout, BufWriter};
 
-fn main() {
-    let stdout = stdout();
-    let message = String::from("Hello fellow hackers");
-    let width = message.chars().count();
+This struck me as kind of an odd question. Surely no one “wins” in a nuclear war, right? Isn’t that what Matthew Broderick taught that computer in War Games? The only winning move is not to play? Maybe. But maybe not. 
 
-    let mut writer = BufWriter::new(stdout.lock());
-    say(message.as_bytes(), width, &mut writer).unwrap();
-}
-```
+Let’s shift gears for a moment to another movie - one of my favorites - Dr. Strangelove, Or: How I Learned to Stop Worrying and Love the Bomb. The basic premise is that the Soviets creates a “Doomsday Machine”, which is programmed to automatically destroy the entire world with nuclear weapons in the event of a nuclear strike on the Soviet Union. The Soviet ambassador is asked why they would ever build such a thing, to which he responds: “we learned that your country was working along similar lines, and we were afraid of a doomsday gap.” 
 
-I derive a large amount of my self-worth from whether or not Hacker News is impressed with the work I'm doing, so when I realized this, I cancelled all of our existing projects and started migrating everything to Rust immediately.
+The film is a dark satire, and while the concept of a “Doomsday Gap” may seem absurd - I’m guessing that Kubrick meant it to, at least - from a game theory perspective it’s not so crazy. Let’s dive in. 
+## Eisenhower Strategy
 
-## Sermone fata
+We start in the late ‘50s. The US has far more nuclear weapons than the USSR, but both sides have enough to completely destroy the other if they so choose. On the plus side, Stalin is gone. 
 
-Lorem markdownum, bracchia in redibam! Terque unda puppi nec, linguae posterior
-in utraque respicere candidus Mimasque formae; quae conantem cervice. Parcite
-variatus, redolentia adeunt. Tyrioque dies, naufraga sua adit partibus celanda
-torquere temptata, erit maneat et ramos, [iam](#) ait dominari
-potitus! Tibi litora matremque fumantia condi radicibus opusque.
+The official foreign policy of the Eisenhower administration is “massive retaliation”. We’ll take Eisenhower at his word, and say the little black book of war plans has one option: a mass strike on the Soviet Union. We’ll say the Soviets go “first”, and give them three options: do nothing, a mass strike, or a “limited strike.” Additionally, we’ll say the US always responds to “do nothing” with “do nothing”, and when this is optimal we’ll call it a “Broderick Equilibrium” - the winning move is not to play. Let’s look at the game tree. 
+<Image src={designSystem} alt="" />
 
-Deus feram verumque, fecit, ira tamen, terras per alienae victum. Mutantur
-levitate quas ubi arcum ripas oculos abest. Adest [commissaque
-victae](#) in gemitus nectareis ire diva
-dotibus ora, et findi huic invenit; fatis? Fractaque dare superinposita
-nimiumque simulatoremque sanguine, at voce aestibus diu! Quid veterum hausit tu
-nil utinam paternos ima, commentaque.
+The path of the ideal strategy (determined by basic back-tracing) follows the solid arrows.
 
-```c
-exbibyte_wins = gigahertz(3);
-grayscaleUtilityClient = control_uat;
-pcmciaHibernate = oop_virus_console(text_mountain);
-if (stateWaisFirewire >= -2) {
-    jfs = 647065 / ldapVrml(tutorialRestore, 85);
-    metal_runtime_parse = roomComputingResolution - toolbarUpload +
-            ipx_nvram_open;
-} else {
-    maximizeSidebar *= suffix_url(flatbed + 2, requirements_encoding_node +
-            only_qbe_media, minicomputer);
-}
-```
+As you can see, I have no idea how to evaluate the case non-mutual destruction. I guess it's "positive" because you eliminate the existential threat, but there's nothing left for you to really "conquor." As for the surrender option, the utiity units are obviously arbitrary. But unless you're a die-hard believer that "better dead than red", you (like me) would pick colonization by the Soviets over everyone literally dying. 
 
-Aere repetiti cognataque natus. Habebat vela solutis saepe munus nondum adhuc
-oscula nomina pignora corpus deserat.
+Of course, I'm not saying that this is what would happen. I'm sure that Eisenhower would massively retaliate against a nuclear strike. But from a purely rational game theory perspective (in this admittedly simplified model) they could bomb one city and compel us to surrender. 
 
-## Lethaei Pindumve me quae dinumerat Pavor
+## Adding Some US Flexibility 
 
-Idem se saxa fata pollentibus geminos; quos pedibus. Est urnis Herses omnes nec
-divite: et ille illa furit sim verbis Cyllenius.
+Enter Jack Kennedy, who gives us another option, the so-called “flexible response.” Basically we expand our little black book to allow answering a limited strike with a limited strike. This doesn’t lead to a terminal state, but we can safely say both sides incur a penalty. And just like that, our start state is a Broderick Equilibrium! 
 
-1. Captus inpleverunt collo
-2. Nec nam placebant
-3. Siquos vulgus
-4. Dictis carissime fugae
-5. A tacitos nulla viginti
+<Image src={kennedyStrategy} alt="" />
 
+## Hello, Doomsday... 
+
+Of course in the movie, the Soviets opt for none of the three initial “moves” and go a different direction entirely,aforementioned “Doomsday Machine.” We’ll give the US a chance to respond in kind, closing the “Doomsday Gap.” 
+
+<Image src={doomsdayStrategy} alt="" />
+
+As we can see, the Doomsday Gap is quite real, and closing it is the only way to restore the Broderick Equilibrium. Since our limited strike option is no longer viable, they could otherwise hit us with limited strikes until we surrender (or close the Doomsday Gap.) 
+
+## And now for the twist... 
+
+The decision trees show that sometimes a limited strike is the "winning move" (assuming full rationality, etc.) while being the first to launch a massive strike is always wrong. And yet, it's the opposite assumption that may have saved the world. 
+
+In 1983, a Soviet lieutenant colonel named Stanislav Petrov received notification from an early-warning satelite that nuclear missiles had been launched targeting the Soviet Union. Thankfully, he correctly dismissed it as a false alarm, rather than running it up the chain of command. His rationale? The warning detected 5 missiles. Petrov assumed that any pre-emptive attack by the Americans would be a massive assault. I don't know what the lesson there is, but hopefully Mathew Broderick can figure it out. 
 Ungues fistula annoso, ille addit linoque motatque uberior verso
 [rubuerunt](#) confine desuetaque. _Sanguine_ anteit
 emerguntque expugnacior est pennas iniqui ecce **haeret** genus: peiora imagine
