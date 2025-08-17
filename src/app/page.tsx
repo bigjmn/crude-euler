@@ -1,7 +1,6 @@
 import Image, { type ImageProps } from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
-import avatarImage from '@/images/avatar.jpg'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
@@ -289,7 +288,7 @@ export default async function Home() {
           <Image
         src={jnProfile}
         alt=""
-        sizes={'4rem'}
+        sizes='4rem'
         className={clsx(
           'rounded-full bg-zinc-100 object-cover dark:bg-zinc-800',
           'h-28 w-28',
