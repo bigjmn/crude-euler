@@ -1,9 +1,15 @@
 import { ArticleLayout } from '@/components/ArticleLayout'
+import { ThemeImage } from '@/components/ThemeImage'
 import loopsNy from './loopsny.png'
+import loopsNyDark from './loopany-dark.png'
 import planarNy from './planarnyv.png'
+import planarNyDark from './planarnyv-dark.png'
 import nyvFull from './nyvs-full.png'
+import nyvFullDark from './nyvs-full-dark.png'
 import enyvs from './enyvs.png'
+import enyvsDark from './enyvs-dark.png'
 import degreeNineEnyv from './degree-9-enyv.png'
+import degreeNineEnyvDark from './degree-9-enyv-dark.png'
 export const article = {
   author: 'Jesse Nicholas',
   date: '2025-07-26',
@@ -34,7 +40,7 @@ If a graph meets this criteria, we'll call it New York Valid (NYV).
 To illustrate that third rule, consider the graphs below. In the second one, the AB edge would never be used, because the A-C-B route is faster. We'll denote that an *illegal 3-cycle*. 
 
 <figure>
-<Image src={loopsNy} alt="" />
+<ThemeImage src={loopsNy} darkSrc={loopsNyDark} alt="" />
 <figcaption style={{justifySelf:'center'}}>Any direct path must be faster than all indirect paths</figcaption>
 </figure>
 
@@ -46,7 +52,7 @@ So first off, what's the most vertices we can have in an NYV graph?
 This is actually trivial - we can create the complete graph $$K_n$$ (an edge between every pair of vertices) for any size n, and any configuration of edge weights 20 and 45 that avoid an illegal 3-cycle. 
 
 <figure>
-<Image src={nyvFull} alt="" />
+<ThemeImage src={nyvFull} darkSrc={nyvFullDark} alt="" />
 <figcaption style={{justifySelf:'center'}}>Some valid NYVs of order 5</figcaption>
 </figure>
 
@@ -63,7 +69,7 @@ Maybe we can make things a bit more interesting by looking for planar NYVs - tha
 Unfortunately this turns out not to be very exciting either. Here’s the problem: if our graph isn’t fully connected, there must be two vertices that are connected by a path of length 2 (length being the actual number of edges.) Since 20 + 20 is not 45 - according to Wolfram Alpha at least – the weight of that path won’t be 20 or 45, which means our graph isn’t NYV. Longer paths fail for the same reason. So our maximum NYV will be the largest fully-connected graph that can be embedded in 2D space, $$K_4$$. 
 
 <figure>
-<Image src={planarNy} alt="" />
+<ThemeImage src={planarNy} darkSrc={planarNyDark} alt="" />
 <figcaption style={{justifySelf:'center'}}>One edge configuration for a planar NYV of degree 4</figcaption>
 </figure>
 
@@ -76,7 +82,7 @@ Okay, let’s add an additional option to our travel set: if the minimum path we
 What's the most nodes we can have in a planar ENYV?
 
 <figure>
-<Image src={enyvs} alt="" />
+<ThemeImage src={enyvs} darkSrc={enyvsDark} alt="" />
 <figcaption style={{justifySelf:'center'}}>Planar ENYVs of degrees 5 and 8</figcaption>
 </figure>
 Now we're getting somewhere! 
@@ -84,7 +90,7 @@ Now we're getting somewhere!
 The largest planar ENYV I've been able to find has order 9. And she's a *beauty.*
 
 <figure>
-<Image src={degreeNineEnyv} alt="" />
+<ThemeImage src={degreeNineEnyv} darkSrc={degreeNineEnyvDark} alt="" />
 <figcaption style={{justifySelf:'center'}}>All nodes have (weighted) distance 20, 25, or 45</figcaption>
 </figure>
 
