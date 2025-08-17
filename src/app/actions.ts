@@ -11,7 +11,10 @@ export async function subscribeUser(formData:FormData){
         const AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID 
         const API_KEY = process.env.MAILCHIMP_API_KEY 
         const DATACENTER = process.env.MAILCHIMP_API_SERVER
-
+        if (!AUDIENCE_ID || !API_KEY || !DATACENTER) {
+            console.error("Mailchimp environment variables are not configured.");
+            return { error: "Something went wrong. Please try again later." };
+        }
         const data = 
         {email_address: email, 
         status: "subscribed"
@@ -29,9 +32,18 @@ export async function subscribeUser(formData:FormData){
         method: "POST",
       }
     );
-    console.log('success')
+    if (response.status >= 400) {
+            const errorData = await response.json();
+            if (errorData.title === "Member Exists") {
+                return { success: true, message: "You're already subscribed!" };
+            }
+            return {
+                error: `There was an error subscribing you. Please try again.`,
+            };
+        }
+    return { success: true, message: "Success! You are now subscribed." }
     } catch (error){
-        console.log(error)
+        return { error: "Something went wrong. Please try again."}
     }
     
 

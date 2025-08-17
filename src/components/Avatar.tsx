@@ -247,7 +247,7 @@ function Avatar({
   )
 }
 
-export function Header() {
+export function AvatarComponent() {
   let isHomePage = usePathname() === '/'
 
   let headerRef = useRef<React.ElementRef<'div'>>(null)
@@ -356,7 +356,7 @@ export function Header() {
 
   return (
     <>
-      <header
+      <div
         className="pointer-events-none relative z-50 flex flex-none flex-col"
         style={{
           height: 'var(--header-height)',
@@ -376,7 +376,7 @@ export function Header() {
                   'var(--header-position)' as React.CSSProperties['position'],
               }}
             >
-              {/* <div
+              <div
                 className="top-(--avatar-top,--spacing(3)) w-full"
                 style={{
                   position:
@@ -397,46 +397,12 @@ export function Header() {
                     style={{ transform: 'var(--avatar-image-transform)' }}
                   />
                 </div>
-              </div> */}
+              </div>
             </Container>
           </>
         )}
-        <div
-          ref={headerRef}
-          className="top-0 z-10 h-16 pt-6"
-          style={{
-            position:
-              'var(--header-position)' as React.CSSProperties['position'],
-          }}
-        >
-          <Container
-            className="top-(--header-top,--spacing(6)) w-full"
-            style={{
-              position:
-                'var(--header-inner-position)' as React.CSSProperties['position'],
-            }}
-          >
-            <div className="relative flex gap-4">
-              {/* <div className="flex flex-1">
-                {!isHomePage && (
-                  <AvatarContainer>
-                    <Avatar />
-                  </AvatarContainer>
-                )}
-              </div>
-              <div className="flex flex-1 justify-end md:justify-center">
-                <MobileNavigation className="pointer-events-auto md:hidden" />
-                <DesktopNavigation className="pointer-events-auto hidden md:block" />
-              </div> */}
-              <div className="flex justify-end md:flex-1">
-                <div className="pointer-events-auto">
-                  <ThemeToggle />
-                </div>
-              </div>
-            </div>
-          </Container>
-        </div>
-      </header>
+
+      </div>
       {isHomePage && (
         <div
           className="flex-none"

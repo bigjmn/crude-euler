@@ -1,9 +1,14 @@
 import { ArticleLayout } from '@/components/ArticleLayout'
-import designSystem from './EisenhowerGT.png'
-import kennedyStrategy from './Kennedy.png'
-import doomsdayStrategy from './DoomsdayVersion.png'
+import kennedyStrategy from './kennedy-gt.png'
+import darkKennedyStrategy from './kennedy-gt-dark.png'
+import eisenhowerStrategy from './eisenhower-gt.png'
+import darkEisenhowerStrategy from './eisenhower-gt-dark.png'
+
+import doomsdayStrategy from './doomsday-gt.png'
+import darkDoomsdayStrategy from './doomsday-gt-dark.png'
+import {ThemeImage} from '@/components/ThemeImage'
 export const article = {
-  author: 'Adam Wathan',
+  author: 'Jesse Nicholas',
   date: '2025-07-24',
   title: 'Apocalyptic Game Theory',
   description:
@@ -30,7 +35,10 @@ The film is a dark satire, and while the concept of a “Doomsday Gap” may see
 We start in the late ‘50s. The US has far more nuclear weapons than the USSR, but both sides have enough to completely destroy the other if they so choose. On the plus side, Stalin is gone. 
 
 The official foreign policy of the Eisenhower administration is “massive retaliation”. We’ll take Eisenhower at his word, and say the little black book of war plans has one option: a mass strike on the Soviet Union. We’ll say the Soviets go “first”, and give them three options: do nothing, a mass strike, or a “limited strike.” Additionally, we’ll say the US always responds to “do nothing” with “do nothing”, and when this is optimal we’ll call it a “Broderick Equilibrium” - the winning move is not to play. Let’s look at the game tree. 
-<Image src={designSystem} alt="" />
+<figure>
+<ThemeImage src={eisenhowerStrategy} darkSrc={darkEisenhowerStrategy} alt="" />
+<figcaption style={{justifySelf:'center'}}>Massive retaliation sub-optimal</figcaption>
+</figure>
 
 The path of the ideal strategy (determined by basic back-tracing) follows the solid arrows.
 
@@ -42,14 +50,18 @@ Of course, I'm not saying that this is what would happen. I'm sure that Eisenhow
 
 Enter Jack Kennedy, who gives us another option, the so-called “flexible response.” Basically we expand our little black book to allow answering a limited strike with a limited strike. This doesn’t lead to a terminal state, but we can safely say both sides incur a penalty. And just like that, our start state is a Broderick Equilibrium! 
 
-<Image src={kennedyStrategy} alt="" />
-
+<figure>
+<ThemeImage src={kennedyStrategy} darkSrc={darkKennedyStrategy} alt="" />
+<figcaption style={{justifySelf:'center'}}>Flexible response makes retaliation feasible, thus is a true deterrent</figcaption>
+</figure>
 ## Hello, Doomsday... 
 
 Of course in the movie, the Soviets opt for none of the three initial “moves” and go a different direction entirely,aforementioned “Doomsday Machine.” We’ll give the US a chance to respond in kind, closing the “Doomsday Gap.” 
 
-<Image src={doomsdayStrategy} alt="" />
-
+<figure>
+<ThemeImage src={doomsdayStrategy} darkSrc={darkDoomsdayStrategy} alt="" />
+<figcaption style={{justifySelf:'center'}}>Flexible response now infeasible - closing the "doomsday gap" is necessary.</figcaption>
+</figure>
 As we can see, the Doomsday Gap is quite real, and closing it is the only way to restore the Broderick Equilibrium. Since our limited strike option is no longer viable, they could otherwise hit us with limited strikes until we surrender (or close the Doomsday Gap.) 
 
 ## And now for the twist... 

@@ -34,3 +34,15 @@ export function LinkedInIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
     </svg>
   )
 }
+
+export function WebLinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 21a9 9 0 100-18 9 9 0 000 18zM4.93 6.022A7.5 7.5 0 0112 4.5v15a7.5 7.5 0 01-7.07-8.478zM13.5 4.5a7.5 7.5 0 017.07 8.478A7.5 7.5 0 0113.5 19.5v-15z"
+      />
+    </svg>
+  )
+}
