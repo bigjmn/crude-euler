@@ -416,7 +416,15 @@ export function Header() {
                 'var(--header-inner-position)' as React.CSSProperties['position'],
             }}
           >
-            <div className="relative flex gap-4">
+            <div className="relative flex gap-4 items-center">
+              <Link
+                href="/"
+                aria-label="Home"
+                className='pointer-events-auto'>
+              <h1>
+                Crude Euler
+              </h1>
+              </Link>
               {/* <div className="flex flex-1">
                 {!isHomePage && (
                   <AvatarContainer>

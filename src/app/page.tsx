@@ -262,7 +262,7 @@ export default async function Home() {
             Crude Euler
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I came here to chew bubblegum and to blog about math and engineering, and I am all out of bubble gum. 
+            I came here to chew bubblegum and to blog about math and engineering, and I'm all out of bubblegum. 
           </p>
           {/* <div className="mt-6 flex gap-6">
             <SocialLink href="#" aria-label="Follow on X" icon={XIcon} />
