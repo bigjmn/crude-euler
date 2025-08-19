@@ -33,6 +33,7 @@ export async function subscribeUser(formData:FormData){
       }
     );
     if (response.status >= 400) {
+            console.log(response)
             const errorData = await response.json();
             if (errorData.title === "Member Exists") {
                 return { success: true, message: "You're already subscribed!" };
