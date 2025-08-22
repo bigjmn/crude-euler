@@ -20,7 +20,7 @@ export default (props) => <ArticleLayout article={article} {...props} />
 
 We got ‘em! 
 
-This is a follow up to my [previous post](../articles/hardest-logic-puzzle-1) about the Hardest Logic Puzzle in the World. Definitely check that one out if you haven’t already - it has the full puzzle and my initial thoughts on how to tackle it. And indeed, I’ve found a solution! Some of the questions could be simplified a bit (more on that later) but it works, and thus you should consider this an official SPOILER ALERT. If you want to chew over the problem a bit more, stop reading here. 
+This is a follow up to my [previous post](../articles/hardest-logic-puzzle-1) about the Hardest Logic Puzzle in the World. Definitely check that one out if you haven’t already - it has the full puzzle and my initial thoughts on how to tackle it. And indeed, I’ve found a solution! Some of the questions could be simplified a bit (more on that later) but it works, and thus you should consider this an official **SPOILER ALERT**. If you want to chew over the problem a bit more, stop reading here. 
 
 <figure>
 <ThemeImage style={{justifySelf:'center'}} src={xkcdComic} darkSrc={xkcdComic} alt="" />
@@ -32,9 +32,10 @@ So our prediction that the da and ja stuff was mostly window dressing proved lar
 ## Question 1 
 We start out with nothing, so our potential arrangements for ABC are: \{TLR, TRL, LTR, LRT, RTL, RLT}
 
-This question is the hardest one to find. We want to identify a non-Randy; we can actually do that with this first question. The key is to actually use the old “what would the other man say” trick from the classic puzzle. Assume our first question is posed to A. We want to eliminate either B or C as a potential Randy position. We need to make sure the “other man” in our question isn’t Randy, so we can’t simply ask what B (or C) would say. So how do we make sure A isn’t referring us to a Randy answer? Well, Ask and Ye Shall Receive:
+This question is the hardest one to find. We want to identify a non-Randy; we can actually do that with this first question. The key is to actually use the old “what would the other man say” trick from the classic puzzle. Assume our first question is posed to A. We want to eliminate either B or C as a potential Randy position. We need to make sure the “other man” in our question isn’t Randy, so we can’t simply ask what B (or C) would say. So how do we make sure A isn’t referring us to a Randy answer? Well, by asking nicely of course:
 
-“If I asked (any of) your fellow guards here who isn’t Randy if C was Randy, would he say yes?”
+“If I asked (any of) your fellow guards here *who isn’t Randy* if C was Randy, would he say yes?”
+
 Two options here. Either… 
 1. We’re not talking to Randy - in this case we’re in the classic two guards problem, and can simply invert what he tells us to eliminate either B or C he tells us can simply be  talking to Randy (whence the need for the “any of” condition) 
 2. We are talking to Randy - his info isn’t worth a damn, but we’re still safe inverting it and eliminating B or C. They couldn’t be Randy, Randy is A - we just talked to him.
@@ -46,7 +47,7 @@ As for making it da-ja agnostic, the trick to remember is that two “jas” mak
 ## Question 2 
 Let’s assume the answer to the first question was “ja.” It’s the same situation if she says “da”, we’d just eliminate Randoms from position C instead of B. You’ll find the full question/answer tree below. Our remaining arrangements for ABC are now \{TLR, LTR, RTL, RLT}. 
 B isn’t Randy, so we pounce: we can identify him exactly with one question. Any yes/no question we know the answer to will tell us if he’s Truman or Lionel. “Is the sky blue?” “Was David Tennant the best Doctor in Doctor Who?” For the purists, we’ll go with “Is true true?”
-The gods are a little less flexible, so it’s back to the da-ja double negative trick. 
+The gods are a little less flexible, so it’s back to the ol' da-ja double negative trick. 
 
 *Does “ja” mean “yes?”*
 
