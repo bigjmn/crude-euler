@@ -147,7 +147,7 @@ export default {
             paddingLeft: theme('spacing.6'),
             borderLeftWidth: theme('borderWidth.2'),
             borderLeftColor: 'var(--tw-prose-quote-borders)',
-            fontStyle: 'italic',
+            fontStyle: 'normal',
           },
 
           // Figures
